@@ -5,7 +5,7 @@ import Routes from "./components/Routes";
 
 function App() {
 
-  axios.defaults.baseURL = "http://localhost:4000";
+  axios.defaults.baseURL = "https://chatserver-6fpp.onrender.com/";
   axios.defaults.withCredentials = true;
 
 
