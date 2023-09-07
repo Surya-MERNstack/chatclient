@@ -21,6 +21,8 @@ const Chat = () => {
     connectTows();
   }, []);
 
+  // http://localhost:4000/
+
   const connectTows = () => {
     const ws = new WebSocket("wss://chatserver-6fpp.onrender.com/users");
     setWs(ws);
