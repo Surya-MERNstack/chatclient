@@ -312,9 +312,6 @@
 
 // export default Chat;
 
-
-
-
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Avatar from "./Avatar";
 import Logo from "./Logo";
@@ -452,8 +449,8 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen">
-      <div className="bg-white w-1/4 lg:w-1/3 p-4 overflow-y-auto">
+    <div className="lg:flex lg:h-screen">
+      <div className="lg:w-1/4 lg:p-4">
         <Logo />
         <div className="flex-grow">
           {Object.keys(onlinePeopleEXclOurUser).map((userId) => (
@@ -501,7 +498,7 @@ const Chat = () => {
           </button>
         </div>
       </div>
-      <div className="bg-blue-50 w-3/4 lg:w-2/3 p-4">
+      <div className="lg:w-3/4 lg:p-4 bg-blue-50">
         <div className="flex-grow">
           {!selectUser && (
             <div className="flex h-full flex-grow items-center justify-center">
@@ -568,15 +565,15 @@ const Chat = () => {
           )}
         </div>
         {!!selectUser && (
-          <form className="flex gap-2">
+          <form className="lg:flex lg:gap-2">
             <input
               type="text"
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message"
-              className="bg-white flex-grow border p-2"
+              className="lg:bg-white flex-grow border p-2"
             />
-            <label className="bg-blue-200 p-2 rounded-sm cursor-pointer border border-blue-300">
+            <label className="lg:bg-blue-200 p-2 rounded-sm cursor-pointer border border-blue-300">
               <input type="file" className="hidden" onChange={sendFile} />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -593,7 +590,7 @@ const Chat = () => {
                 />
               </svg>
             </label>
-            <button type="submit" className="bg-blue-500 p-2 text-white rounded-sm">
+            <button type="submit" className="lg:bg-blue-500 p-2 text-white rounded-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
