@@ -5,6 +5,7 @@ import { UserContext } from "./UserContext";
 import { uniqBy } from "lodash";
 import axios from "axios";
 import ContactDetails from "./ContactDetails";
+import chatimg from "../im/chat.gif";
 
 const Chat = () => {
   const [ws, setWs] = useState(null);
@@ -124,7 +125,6 @@ const Chat = () => {
   };
 
   const sendfile = (e) => {
-    //  console.log(e.target.files)
     const files = e.target.files[0];
     const reader = new FileReader();
 
@@ -139,7 +139,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen ">
       <div className="bg-white w-1/3 flex flex-col">
         <div className="flex-grow">
           <Logo />
@@ -167,7 +167,7 @@ const Chat = () => {
           ))}
         </div>
 
-        <div className="p-2 text-center flex items-center justify-center">
+        <div className="p-2 text-center flex  items-center justify-center ">
           <span className="mr-2 text-sm text-gray-600 flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +185,7 @@ const Chat = () => {
           </span>
           <button
             onClick={logout}
-            className="text-sm bg-blue-100 py-1 px-2 border rounded-sm text-gray-500"
+            className="text-sm bg-red-400 text-white py-1 px-2 border rounded-md"
           >
             Logout
           </button>
@@ -195,20 +195,8 @@ const Chat = () => {
         <div className="flex-grow">
           {!selectUser && (
             <div className="flex h-full flex-grow  items-center justify-center">
-              <div className="text-gray-400 flex">
-                &larr; start chat{" "} 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+              <div className="text-gray-400 flex ">
+                <img src={chatimg} alt="" srcset="" />
               </div>
             </div>
           )}
