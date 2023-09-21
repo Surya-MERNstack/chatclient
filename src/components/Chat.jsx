@@ -143,7 +143,7 @@ const Chat = () => {
         data: reader.result,
       });
     };
-    window.location.reload();
+    
   };
 
 
@@ -295,6 +295,7 @@ const Chat = () => {
             <button
               type="submit"
               className="bg-blue-500 p-2 text-white rounded-sm"
+              onClick={window.location.reload()}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
