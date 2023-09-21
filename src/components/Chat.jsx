@@ -58,35 +58,6 @@ const Chat = () => {
     }
   };
 
-  // const sendMessage = (e, file = null) => {
-  //   if (e) e.preventDefault();
-  //   ws.send(
-  //     JSON.stringify({
-  //       recipient: selectUser,
-  //       text: newMessage,
-  //       file,
-  //     })
-  //   );
-  //   setNewMessage("");
-  //   setMessage((prev) => [
-  //     ...prev,
-  //     {
-  //       text: newMessage,
-  //       sender: id,
-  //       recipient: selectUser,
-  //       _id: Date.now(),
-  //     },
-  //   ]);
-  //   if (file) {
-  //     if (file) {
-  //       axios.get("/message/" + selectUser).then((res) => {
-  //         setMessage(res.data);
-  //       });
-  //     }
-  //   }
-  //   setReloadChat(true);
-  // };
-
   const sendMessage = (e, file = null) => {
     if (e) e.preventDefault();
     ws.send(
@@ -106,19 +77,17 @@ const Chat = () => {
         _id: Date.now(),
       },
     ]);
-    
-    // Set reloadChat to true immediately after sending the message
-    setReloadChat(true);
-  
     if (file) {
-      axios.get("/message/" + selectUser).then((res) => {
-        setMessage(res.data);
-        
-        // Set reloadChat to false when messages are loaded
-        setReloadChat(false);
-      });
+      if (file) {
+        axios.get("/message/" + selectUser).then((res) => {
+          setMessage(res.data);
+        });
+      }
     }
+    setReloadChat(true);
   };
+
+
   
   
   useEffect(() => {
