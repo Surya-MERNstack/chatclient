@@ -83,6 +83,7 @@ const Chat = () => {
         });
       }
     }
+    window.location.reload();
   };
 
   useEffect(() => {
