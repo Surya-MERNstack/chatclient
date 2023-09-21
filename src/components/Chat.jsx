@@ -25,7 +25,7 @@ const Chat = () => {
 
   useEffect(() => {
     connectTows();
-  }, [reducer]);
+  }, []);
 
   // http://localhost:4000/
 
