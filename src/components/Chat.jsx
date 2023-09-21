@@ -106,13 +106,20 @@ const Chat = () => {
         _id: Date.now(),
       },
     ]);
+    
+    // Set reloadChat to true immediately after sending the message
+    setReloadChat(true);
+  
     if (file) {
       axios.get("/message/" + selectUser).then((res) => {
         setMessage(res.data);
+        
+        // Set reloadChat to false when messages are loaded
+        setReloadChat(false);
       });
     }
-    setReloadChat(true);
   };
+  
   
   useEffect(() => {
     const div = MessageBoxRef.current;
