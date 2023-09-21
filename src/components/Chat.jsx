@@ -440,7 +440,7 @@ const Chat = () => {
         setMessage(res.data);
       });
     }
-  }, [refreshComponent]);
+  }, [selectUser]);
 
   const onlinePeopleExclOurUser = { ...onlinePeople };
   delete onlinePeopleExclOurUser[id];
