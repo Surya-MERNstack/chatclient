@@ -85,11 +85,8 @@ const Chat = () => {
         });
       }
     }
-    window.location.reload()
   };
 
-
-  
   
   useEffect(() => {
     const div = MessageBoxRef.current;
@@ -97,6 +94,7 @@ const Chat = () => {
       div.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   }, [messages]);
+
 
   useEffect(() => {
     axios.get("/users/people").then((res) => {
