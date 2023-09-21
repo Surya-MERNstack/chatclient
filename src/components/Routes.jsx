@@ -6,8 +6,6 @@ import Chat from './Chat'
 const Routes = () => {
     const {username, id} = useContext(UserContext)
 
-    console.log(username, id)
-
     if(username){
         return <Chat/>
     }

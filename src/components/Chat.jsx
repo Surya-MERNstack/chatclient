@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import Avatar from "./Avatar";
 import Logo from "./Logo";
 import { UserContext } from "./UserContext";
@@ -16,11 +22,11 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessage] = useState([]);
   const MessageBoxRef = useRef();
-  const [reducer, forUpdate] = useReducer(x => x + 1 ,0);
+  const [reducer, forUpdate] = useReducer((x) => x + 1, 0);
 
   useEffect(() => {
     connectTows();
-  }, []);
+  }, [reducer]);
 
   // http://localhost:4000/
 
@@ -80,13 +86,11 @@ const Chat = () => {
     if (file) {
       if (file) {
         axios.get("/message/" + selectUser).then((res) => {
-        setInterval(() => {
           setMessage(res.data);
-        },1000)
         });
       }
     }
-
+    forUpdate();
   };
 
   useEffect(() => {
