@@ -46,7 +46,6 @@ const RegisterAndLoginForm = () => {
 
       const { data } = await axios.post(url, {
         username,
-        email,
         password,
       });
 
