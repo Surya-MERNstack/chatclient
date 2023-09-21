@@ -16,7 +16,7 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessage] = useState([]);
   const MessageBoxRef = useRef();
-  const [reloadChat, setReloadChat] = useState(false);
+  // const [reloadChat, setReloadChat] = useState(false);
 
   useEffect(() => {
     connectTows();
@@ -84,7 +84,7 @@ const Chat = () => {
         });
       }
     }
-    setReloadChat(true);
+    // setReloadChat(true);
   };
 
 
