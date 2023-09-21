@@ -16,7 +16,6 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessage] = useState([]);
   const MessageBoxRef = useRef();
-  const [refresh, setRefresh] = useState(false);
 
   
 
@@ -144,11 +143,10 @@ const Chat = () => {
         data: reader.result,
       });
     };
+    window.location.reload();
   };
 
-  const triggerRefresh = () => {
-    setRefresh(!refresh);
-  };
+
 
   return (
     <div className="flex h-screen ">
@@ -297,7 +295,6 @@ const Chat = () => {
             <button
               type="submit"
               className="bg-blue-500 p-2 text-white rounded-sm"
-              onClick={triggerRefresh}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
