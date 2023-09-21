@@ -22,7 +22,7 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessage] = useState([]);
   const MessageBoxRef = useRef();
-  const [reducer, forUpdate] = useReducer((x) => x + 1, 0);
+  const [reloadChat, setReloadChat] = useState(false);
 
   useEffect(() => {
     connectTows();
@@ -90,7 +90,8 @@ const Chat = () => {
         });
       }
     }
-    forUpdate();
+    setReloadChat(true);
+
   };
 
   useEffect(() => {
@@ -98,7 +99,8 @@ const Chat = () => {
     if (div) {
       div.scrollIntoView({ behavior: "smooth", block: "end" });
     }
-  }, [messages]);
+    setReloadChat(false);
+  }, [messages, reloadChat]);
 
   useEffect(() => {
     axios.get("/users/people").then((res) => {
