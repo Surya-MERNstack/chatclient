@@ -16,7 +16,7 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessage] = useState([]);
   const MessageBoxRef = useRef();
-  // const [reloadChat, setReloadChat] = useState(false);
+  
 
   useEffect(() => {
     connectTows();
@@ -94,7 +94,7 @@ const Chat = () => {
     if (div) {
       div.scrollIntoView({ behavior: "smooth", block: "end" });
     }
-  }, [messages, reloadChat]);
+  }, [messages]);
 
   useEffect(() => {
     axios.get("/users/people").then((res) => {
