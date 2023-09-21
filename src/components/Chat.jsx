@@ -84,7 +84,6 @@ const Chat = () => {
         });
       }
     }
-    // setReloadChat(true);
   };
 
 
@@ -95,7 +94,6 @@ const Chat = () => {
     if (div) {
       div.scrollIntoView({ behavior: "smooth", block: "end" });
     }
-    setReloadChat(false);
   }, [messages, reloadChat]);
 
   useEffect(() => {
