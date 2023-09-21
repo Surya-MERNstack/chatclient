@@ -18,13 +18,13 @@ const RegisterAndLoginForm = () => {
       isLoginOrRegister === "register" ? "users/register" : "users/login";
 
     try {
-      setIsLoading(true); // Set loading to true when the request starts
+      setIsLoading(true); 
 
       if (username === "" || password === "") {
         toast.error("Fill out the form completely", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        setIsLoading(false); // Set loading to false on error
+        setIsLoading(false);
         return;
       }
 
@@ -32,7 +32,7 @@ const RegisterAndLoginForm = () => {
         toast.error("Username must be at least 3 characters", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        setIsLoading(false); // Set loading to false on error
+        setIsLoading(false); 
         return;
       }
 
@@ -40,7 +40,7 @@ const RegisterAndLoginForm = () => {
         toast.error("Password must be at least 3 characters", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        setIsLoading(false); // Set loading to false on error
+        setIsLoading(false); 
         return;
       }
 
@@ -51,23 +51,18 @@ const RegisterAndLoginForm = () => {
       });
 
       if (isLoginOrRegister === "register") {
-        // Registration successful, now automatically switch to login
         toast.success("Registration successful. Now you can log in.", {
           position: toast.POSITION.TOP_RIGHT,
         });
 
-        // Update UI to switch to login
         setIsLoginRegister("login");
 
-        // Clear the username and password fields
         setUsername("");
         setPassword("");
       } else if (isLoginOrRegister === "login") {
-        // If the user clicked "Login" instead of "Register", set the user's data
         setLoggedInUserName(username);
         setID(data.id);
 
-        // Show login success message
         toast.success("Login successful.", {
           position: toast.POSITION.TOP_RIGHT,
         });
@@ -93,7 +88,7 @@ const RegisterAndLoginForm = () => {
         }
       }
     } finally {
-      setIsLoading(false); // Set loading to false when the request completes
+      setIsLoading(false); 
     }
   };
 
@@ -132,7 +127,7 @@ const RegisterAndLoginForm = () => {
             } text-white block w-full rounded-full p-2 relative ${
               isLoading ? "bg-opacity-50" : ""
             }`}
-            disabled={isLoading} // Disable the button when loading
+            disabled={isLoading} 
           >
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center">
