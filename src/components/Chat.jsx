@@ -80,7 +80,9 @@ const Chat = () => {
     if (file) {
       if (file) {
         axios.get("/message/" + selectUser).then((res) => {
+        setInterval(() => {
           setMessage(res.data);
+        },1000)
         });
       }
     }
@@ -110,9 +112,7 @@ const Chat = () => {
   useEffect(() => {
     if (selectUser) {
       axios.get("users/message/" + selectUser).then((res) => {
-       setInterval(() => {
         setMessage(res.data);
-       },1000)
       });
     }
   }, [selectUser]);
